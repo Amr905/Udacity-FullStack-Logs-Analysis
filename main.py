@@ -1,4 +1,4 @@
-# python 3
+#!/usr/bin/env python3
 import psycopg2
 
 try:
@@ -20,7 +20,7 @@ try:
     # most popular article author
     cur.execute(
         """SELECT name,COUNT(path)  FROM log,Articles
-           INNER JOIN authors ON articles.author=authors.id
+           JOIN authors ON articles.author=authors.id
            where SUBSTRING(path,10,50)=slug
            GROUP BY name ORDER BY COUNT(path) DESC  """)
     rows = cur.fetchall()
