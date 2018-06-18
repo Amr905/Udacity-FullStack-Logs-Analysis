@@ -4,8 +4,22 @@ news database has 3 tables
 articles 
 author
 logs
-## installation 
-run the database server then run the databse news 
+## prerequisite
+- python 3
+- VirtualBox
+- Vagrant
+- PostgreSQL 
+## Enviroment setup
+download the db from here 
+https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip
+then open it by the command
+```
+psql -d news -f newsdata.sql
+```
+## Data Preparation
+insert the view to the db by opening the pgadmin then views and create new view and insert the view sql code
+## running the code 
+using vagrant up and vagrant ssh to run and login to the VM,create the views and then run the python file to display results
 
 ## views added to the database 
 to help in the third query 
@@ -17,8 +31,6 @@ FROM log
 
 GROUP BY time::date
 ORDER BY res DESC;
-
-
 ```
 ## What are the most popular three articles of all time?
 ```
